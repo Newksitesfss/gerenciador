@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Editar OS</h3>
+<form method="post">
+  <div class="mb-3">
+    <label>Cliente</label>
+    <input class="form-control" name="cliente" value="{{ os_item.cliente }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Técnico</label>
+    <input class="form-control" name="tecnico" value="{{ os_item.tecnico }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Descrição</label>
+    <input class="form-control" name="descricao" value="{{ os_item.descricao }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Valor</label>
+    <input class="form-control" name="valor" value="{{ os_item.valor }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Status</label>
+    <select class="form-control" name="status">
+      <option {% if os_item.status == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+      <option {% if os_item.status == 'Finalizada' %}selected{% endif %}>Finalizada</option>
+      <option {% if os_item.status == 'Cancelada' %}selected{% endif %}>Cancelada</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Atualizar</button>
+</form>
+{% endblock %}

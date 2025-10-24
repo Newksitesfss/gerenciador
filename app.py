@@ -21,10 +21,10 @@ def init_db():
     with app.open_resource("schema.sql", mode="r") as f:
         db.executescript(f.read())
     db.commit()
-
-# Executa a criação do banco no startup do app
+    
 with app.app_context():
-    db.create_all()
+    if not os.path.exists(DB_PATH):
+        init_db()
 
 
 @app.teardown_appcontext

@@ -22,10 +22,10 @@ def init_db():
         db.executescript(f.read())
     db.commit()
 
-@app.before_first_request
-def setup():
-    if not os.path.exists(DB_PATH):
-        init_db()
+# Executa a criação do banco no startup do app
+with app.app_context():
+    db.create_all()
+
 
 @app.teardown_appcontext
 def close_connection(exception):

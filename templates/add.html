@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Adicionar OS</h3>
+<form method="post">
+  <div class="mb-3">
+    <label>Cliente</label>
+    <input class="form-control" name="cliente" required>
+  </div>
+  <div class="mb-3">
+    <label>Técnico</label>
+    <input class="form-control" name="tecnico" required>
+  </div>
+  <div class="mb-3">
+    <label>Descrição</label>
+    <input class="form-control" name="descricao" required>
+  </div>
+  <div class="mb-3">
+    <label>Valor</label>
+    <input class="form-control" name="valor" required>
+  </div>
+  <div class="mb-3">
+    <label>Status</label>
+    <select class="form-control" name="status">
+      <option>Em andamento</option>
+      <option>Finalizada</option>
+      <option>Cancelada</option>
+    </select>
+  </div>
+  <button class="btn btn-success" type="submit">Salvar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+-- schema for gerenciador de OS
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS os;
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE os (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    cliente TEXT NOT NULL,
+    tecnico TEXT NOT NULL,
+    descricao TEXT NOT NULL,
+    valor TEXT NOT NULL,
+    status TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

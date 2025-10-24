@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1>Bem-vindo ao Gerenciador de OS</h1>
+  <p>Faça login ou crie uma conta para gerenciar ordens de serviço.</p>
+  <a class="btn btn-success" href="{{ url_for('register') }}">Criar conta</a>
+  <a class="btn btn-light text-dark" href="{{ url_for('login') }}">Login</a>
+</div>
+{% endblock %}
